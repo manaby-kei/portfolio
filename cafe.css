@@ -1,0 +1,89 @@
+/* cafe.css */
+body {
+  margin: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #303092;
+  color: white;
+}
+nav a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+}
+#hero {
+  text-align: center;
+  padding: 20px;
+}
+#hero img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #303092;
+  border-radius: 10px;
+}
+#toggle-btn {
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: #303092;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+#toggle-btn:hover {
+  background-color: #3f51b5;
+}
+#menu {
+  max-width: 500px;
+  margin: 20px auto;
+}
+#menu-bg{
+  background-color: rgba(200, 230, 201, 0.9);
+  max-width: 600px; 
+  padding: 5px 0 40px 0;
+  margin: 0 auto;
+}
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.item {
+  padding: 10px;
+  border: 1px solid #303092;
+  transition: background 0.3s;
+  background-color: rgb(202, 197, 197);
+}
+#contact {
+  text-align: center;
+  padding: 20px;
+}
+#contact a {
+  color: #303092;
+  text-decoration: none;
+  border: 2px solid #303092;
+  padding: 5px 10px;
+}
+@media (max-width: 600px) {
+  header { flex-direction: column; }
+  nav { margin-top: 10px; }
+  #menu { max-width: 90%; }
+  #contact-bg { max-width: 90%; }
+}
+main {
+  transition: background 0.3s;
+}
+.main-bg{
+  background-color: #4682B4;
+}
+#contact-bg{
+ background-color: rgba(245, 245, 220, 0.9);
+ max-width: 500px;
+ margin: 0 auto;
+ padding: 0 0 20px 0;
+}
