@@ -23,8 +23,8 @@ nav a {
 #hero img {
   max-width: 100%;
   height: auto;
-  border: 2px solid #303092;
-  border-radius: 10px;
+  border: 3px solid #303092;
+  border-radius: 15px;
 }
 #toggle-btn {
   padding: 10px;
@@ -86,4 +86,5 @@ main {
  max-width: 500px;
  margin: 0 auto;
  padding: 0 0 20px 0;
+
 }
