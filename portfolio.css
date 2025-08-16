@@ -90,6 +90,9 @@ input[type="submit"]:hover {
   border: none;
   border-radius: 5px;
 }
+#info-btn:hover {
+  background-color: #3f51b5;
+}
 
 
 
