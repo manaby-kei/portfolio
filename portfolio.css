@@ -3,6 +3,7 @@
 @media (max-width: 600px) {
   #works { max-width: 90%; }
   .project img { width: 100%; }
+  #contact-bg { max-width: 90%; }
 }
 
 body {
@@ -50,6 +51,12 @@ p {
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.539);
 }
+#contact-bg {
+  background-color: rgba(245, 245, 220, 0.9); /* カフェと統一 */
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
 input, textarea {
   width: 100%;
   margin: 10px 0;
@@ -67,5 +74,18 @@ input[type="submit"] {
 }
 input[type="submit"]:hover {
   background-color: #1ab888;
+}
+
+.hidden {
+  display: none;
+}
+#info-btn {
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: #303092;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
