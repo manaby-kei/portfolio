@@ -75,7 +75,9 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #1ab888;
 }
-
+.contact-text{
+  color: black;
+}
 .hidden {
   display: none;
 }
@@ -88,4 +90,5 @@ input[type="submit"]:hover {
   border: none;
   border-radius: 5px;
 }
+
 
