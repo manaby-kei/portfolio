@@ -18,17 +18,20 @@ nav a {
 }
 #hero {
   text-align: center;
-  padding: 20px;
+  padding: 30px 20px; /* 上下余白増 */
 }
 #hero img {
   max-width: 100%;
   height: auto;
-  border: 3px solid #303092;
+  border: 3px solid #303092; /* 少し太めで強調 */
   border-radius: 15px;
+  display: block; /* 中央揃え用 */
+  margin: 0 auto; /* 左右中央 */
 }
 #toggle-btn {
-  padding: 10px;
-  margin: 10px;
+  padding: 10px 20px;
+  margin: 20px auto; /* 上下20px、左右中央 */
+  display: block; /* 中央揃え用 */
   cursor: pointer;
   background-color: #303092;
   color: white;
@@ -88,3 +91,4 @@ main {
  padding: 0 0 20px 0;
 
 }
+
