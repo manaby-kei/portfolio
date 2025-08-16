@@ -34,7 +34,7 @@ p {
   margin: 0 auto;
   background-color: rgba(245, 245, 220, 0.9);
 }
-h2, .project{
+#works h2, .project{
     color: black;
 }
 .project {
@@ -79,6 +79,7 @@ h2, .project{
 #info-btn:hover {
   background-color: #3f51b5;
 }
+
 
 
 
