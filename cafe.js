@@ -9,3 +9,8 @@ document.querySelector('#slide-btn').addEventListener('click', () => {
   document.querySelector('#hero-img').src = images[index];
   index = (index + 1) % images.length;
 });
+
+setInterval(() => {
+  document.querySelector('#hero-img').src = images[index];
+  index = (index + 1) % images.length;
+}, 5000); // 5秒ごと
