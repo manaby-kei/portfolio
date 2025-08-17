@@ -87,6 +87,18 @@ main {
 .main-bg{
   background-color: #4682B4;
 }
+#slide-btn {
+  padding: 10px 20px;
+  margin: 10px auto;
+  display: block;
+  background-color: #169770;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+#slide-btn:hover {
+  background-color: #1ab888;
+}
 #contact-bg{
  background-color: rgba(245, 245, 220, 0.9);
  max-width: 500px;
@@ -98,6 +110,5 @@ main {
   font-size: 14px;
   margin-top: 5px;
 }
-
 
 
