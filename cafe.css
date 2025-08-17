@@ -93,13 +93,11 @@ main {
  margin: 0 auto;
  padding: 0 0 20px 0;
 }
-#contact-bg p {
-  color: #000000;
-}
 .fake-notice {
   color: #d32f2f; /* 赤で目立つ */
   font-size: 14px;
   margin-top: 5px;
 }
+
 
 
