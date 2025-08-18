@@ -116,6 +116,30 @@ form button:hover {
   background-color: #a88b54;
 }
 
+input, textarea, form button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  box-sizing: border-box; /* 枠線込みで幅を揃える */
+}
+
+input, textarea {
+  border: 1px solid #bbb;
+  margin-bottom: 15px; /* 少しだけ狭める */
+}
+
+form button {
+  border: 1px solid #bbb; /* 入力欄と同じ線で統一感UP */
+  background-color: #c0a167;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #a88b54;
+}
+
 
 
 
