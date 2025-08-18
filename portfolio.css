@@ -9,8 +9,8 @@
 body {
   width: 100%;
   margin: 0;
-  background-color:#2c2f38;
-  color: #333; /* 文字色も黒寄りに */
+  background-color: #1c1f26; /* ダークネイビー */
+  color: #eaeaea;            /* 文字は淡いグレーで柔らかく */
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 16px;
   
@@ -109,6 +109,7 @@ button {
 button:hover {
   background-color: #3a3a92; /* 少し暗めに */
 }
+
 
 
 
