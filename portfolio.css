@@ -64,6 +64,19 @@ p {
   border-radius: 8px;
 }
 
+
+ .work-image {
+  width: 100%;
+  max-width: 600px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.work-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
 /* ===========================
    Contact Section
 =========================== */
@@ -137,5 +150,35 @@ form button:hover {
   color: white;
   border: none;
   border-radius: 5px;
+
+/* ===========================
+   モーダル
+=========================== */
+   
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.8);
 }
+
+.modal-content {
+  display: block;
+  margin: 5% auto;
+  max-width: 90%;
+  border-radius: 8px;
+}
+
+.close {
+  position: absolute;
+  top: 20px; right: 35px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+}
+
 
