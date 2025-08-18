@@ -53,10 +53,6 @@ p {
   color: black;
 }
 
-.projects h2 {
-  margin-bottom: 20px;
-  text-align: center;
-}
 
 .project img {
   max-width: 100%;
@@ -150,7 +146,7 @@ form button:hover {
   color: white;
   border: none;
   border-radius: 5px;
-
+}
 /* ===========================
    モーダル
 =========================== */
@@ -193,8 +189,7 @@ form button:hover {
   transform: translateY(60px) scale(0.95); /* 下＋少し小さく */
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-
 .fadein.show {
   opacity: 1;
-  transform: translateY(0) scale(1); /* 通常位置＋通常サイズ */
+  transform: translateY(0) scale(1);
 }
