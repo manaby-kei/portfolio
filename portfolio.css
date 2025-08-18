@@ -47,13 +47,15 @@ p {
   height: auto;
   border-radius: 8px;
 }
+
 #contact-bg {
-  background-color: rgba(245, 245, 220, 0.9); /* カフェと統一 */
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-  color: black;
+  max-width: 600px; /* 500pxから少し広げる */
+  margin: 40px auto; /* 上下の余白も広げる */
+  padding: 30px;     /* 内側余白を大きめに */
+  border-radius: 10px; /* 角を少し丸めると柔らかい印象 */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
+
 .contact-text{
   color: black;
 }
@@ -78,32 +80,31 @@ form {
 
 label {
   font-weight: bold;
-  display: flex;
-  flex-direction: column; /* ラベルの下に入力欄 */
-  align-items: flex-start; /* 左寄せ */
+  margin-bottom: 8px;
 }
 
 input, textarea {
   width: 100%;
-  padding: 10px;
+  padding: 12px;   /* 入力欄を広めに */
+  margin-bottom: 20px; /* 下に余白を追加 */
   font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
+  border: 1px solid #bbb;
+  border-radius: 6px;
 }
 
 button {
-  padding: 12px;
+  width: 100%;
+  padding: 14px;
   font-size: 1rem;
-  background-color: #303092;
+  background-color: #4a4aa3; /* 落ち着いた紫 */
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #3f51b5;
+  background-color: #3a3a92; /* 少し暗めに */
 }
 
 
