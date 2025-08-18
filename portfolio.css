@@ -9,10 +9,11 @@
 body {
   width: 100%;
   margin: 0;
-  background-color: #303092bb;
-  color: #f5f6f7;
+  background-color: #f4f4f9; /* 落ち着いたライトグレー */
+  color: #333; /* 文字色も黒寄りに */
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 16px;
+  
 }
 header, section {
   padding: 20px;
@@ -107,6 +108,7 @@ button {
 button:hover {
   background-color: #3a3a92; /* 少し暗めに */
 }
+
 
 
 
