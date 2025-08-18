@@ -69,45 +69,42 @@ p {
   border: none;
   border-radius: 5px;
 }
-#info-btn:hover {
-  background-color: #3f51b5;
-}
 
-/* お問い合わせフォームのレイアウト */
 form {
   display: flex;
-  flex-direction: column; /* 縦並びにする */
-  gap: 15px; /* 各項目の間隔 */
-  text-align: left; /* 左寄せにする（中央寄せが邪魔な場合） */
+  flex-direction: column;
+  gap: 15px; /* 各要素の間に余白 */
 }
 
-form label {
-  display: flex;
-  flex-direction: column; /* ラベルと入力欄を縦に並べる */
+label {
   font-weight: bold;
-  color: black;
+  display: flex;
+  flex-direction: column; /* ラベルの下に入力欄 */
+  align-items: flex-start; /* 左寄せ */
 }
 
-form input,
-form textarea {
-  padding: 8px;
-  font-size: 14px;
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
+  box-sizing: border-box;
 }
 
-form button {
-  padding: 10px;
-  font-size: 16px;
+button {
+  padding: 12px;
+  font-size: 1rem;
   background-color: #303092;
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-form button:hover {
+button:hover {
   background-color: #3f51b5;
 }
+
 
 
