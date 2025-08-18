@@ -18,7 +18,7 @@
     <h2>自己紹介</h2>
     <p>はじめまして、ケイです。paizaでHTML/CSS入門編、JavaScript入門編、体験編を学習。ドットインストールでJavaScript（forEach、toggle）を習得。freecodecampでもHTML/CSSを学習し、HTML/CSSでシンプルなサイトを作成できます。クライアントのニーズに合わせた丁寧な対応を心がけています！</p>
   </section>
-  <section id="works">
+  <section id="works"  class="fadein">
     <h2>制作実績</h2>
     <p class="project">本サイト（ポートフォリオ）：HTML/CSS/JavaScriptで構築。Formspreeで問い合わせフォームを実装。</p>
     <div class="project">
@@ -29,7 +29,7 @@
       <img src="images/cafe.png" alt="カフェのランディングページ" class="work-image">
       <p><a href="cafe.html">カフェのランディングページ</a>：HTML/CSS（Flexbox、@media）でレスポンシブ、JavaScriptで背景とテキストの動的切り替え。ファイル整理で管理。</p>    </div>
   </section>
-  <section id="contact">
+  <section id="contact"  class="fadein">
     <div id="contact-bg">
     <h2>お問い合わせ</h2>
       <form action="https://formspree.io/f/mdkdvwgy" method="POST">
@@ -62,8 +62,20 @@
   <span class="close">&times;</span>
   <img class="modal-content" id="modal-img">
 </div>
+  <script>
+  const fadeElems = document.querySelectorAll('.fadein');
+  window.addEventListener('scroll', () => {
+    fadeElems.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 50) {
+        el.classList.add('show');
+      }
+    });
+  });
+</script>
 </body>
 </html>
+
 
 
 
