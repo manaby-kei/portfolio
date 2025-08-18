@@ -60,6 +60,7 @@ p {
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
+  color: black;
 }
 .contact-text{
   color: black;
@@ -79,6 +80,7 @@ p {
 #info-btn:hover {
   background-color: #3f51b5;
 }
+
 
 
 
