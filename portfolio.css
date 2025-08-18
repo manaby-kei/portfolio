@@ -102,14 +102,18 @@ textarea {
   border-radius: 6px;
 }
 
+input, textarea, form button {
+  width: 100%;       /* すべて同じ幅に */
+  box-sizing: border-box; /* padding込みで幅計算 */
+}
+
 form button {
-  width: 100%;
-  padding: 12px;
+  padding: 14px;     /* 入力欄と高さを揃える */
+  font-size: 1rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   background-color: #c0a167;
   color: white;
-  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -134,3 +138,4 @@ form button:hover {
   border: none;
   border-radius: 5px;
 }
+
