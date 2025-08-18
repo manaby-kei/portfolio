@@ -57,6 +57,10 @@ p {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
+#contact-bg, #works {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
 .contact-text{
   color: black;
 }
@@ -107,6 +111,7 @@ button {
 button:hover {
   background-color: #3a3a92; /* 少し暗めに */
 }
+
 
 
 
