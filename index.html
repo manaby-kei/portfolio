@@ -31,15 +31,27 @@
   <section id="contact">
     <h2>お問い合わせ</h2>
     <div id="contact-bg">
-      <p class="contact-text">ご依頼はメールで！</p>
-      <a href="mailto:kei.web.dev@gmail.com">kei.web.dev@gmail.com</a>
-      <button id="info-btn" aria-label="お問い合わせ詳細を表示">詳細を表示</button>
-      <p id="info-text" class="contact-text hidden">対応時間: 平日10～15時、2日以内に返信</p>
+      <form action="https://formspree.io/f/xxxxxx" method="POST">
+        <label>
+            お名前:
+            <input type="text" name="name" required>
+          </label>
+          <label>
+            メールアドレス:
+            <input type="email" name="email" required>
+          </label>
+          <label>
+            メッセージ:
+            <textarea name="message" required></textarea>
+          </label>
+          <button type="submit">送信</button>
+        </form>
     </div>
   </section>
   <script src="portfolio.js"></script>
 </body>
 </html>
+
 
 
 
