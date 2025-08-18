@@ -47,14 +47,6 @@ p {
   height: auto;
   border-radius: 8px;
 }
-#contact-form {
-  width: 70vw;
-  max-width: 600px;
-  min-width: 300px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.539);
-}
 #contact-bg {
   background-color: rgba(245, 245, 220, 0.9); /* カフェと統一 */
   max-width: 500px;
@@ -80,6 +72,7 @@ p {
 #info-btn:hover {
   background-color: #3f51b5;
 }
+
 
 
 
