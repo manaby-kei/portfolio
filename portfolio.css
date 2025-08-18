@@ -53,8 +53,8 @@ p {
 #contact-bg {
   max-width: 600px; /* 500pxから少し広げる */
   margin: 40px auto; /* 上下の余白も広げる */
-  padding: 30px;     /* 内側余白を大きめに */
-  background-color: #2a2a2a; /* 少し明るいグレーで浮かせる */
+  padding: 20px;     /* 内側余白を大きめに */
+  background-color: #3a3a3a; /* 少し明るめのグレー */
   color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.6);
@@ -113,6 +113,7 @@ button {
 button:hover {
   background-color: #b08c52; /* 濃いゴールドでホバー */
 }
+
 
 
 
