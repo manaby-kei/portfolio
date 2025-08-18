@@ -44,6 +44,12 @@ p {
   text-align: center;
   margin-bottom: 20px;
 }
+
+.projects h2 {
+  margin-bottom: 20px; /* 今より少し余裕を足す */
+  text-align: center;  /* 必要なら中央揃えもあり */
+}
+
 .project img {
   max-width: 100%;
   height: auto;
@@ -99,20 +105,22 @@ input, textarea {
   border-radius: 6px;
 }
 
-button {
+form button {
   width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #c0a167; /* 好きな色に調整OK */
+  color: white;
   font-size: 1rem;
   cursor: pointer;
-  background-color: #c5a46d; /* ゴールドっぽい色 */
-  color: #fff;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #b08c52; /* 濃いゴールドでホバー */
+form button:hover {
+  background-color: #a88b54;
 }
+
 
 
 
