@@ -9,7 +9,7 @@
 body {
   width: 100%;
   margin: 0;
-  background-color:#f7f7f7;
+  background-color:#2c2f38;
   color: #333; /* 文字色も黒寄りに */
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 16px;
@@ -109,6 +109,7 @@ button {
 button:hover {
   background-color: #3a3a92; /* 少し暗めに */
 }
+
 
 
 
