@@ -1,11 +1,15 @@
-/* portfolio.css */
-
+/* ===========================
+   Responsive
+=========================== */
 @media (max-width: 600px) {
   #works { max-width: 90%; }
   .project img { width: 100%; }
   #contact-bg { max-width: 90%; }
 }
 
+/* ===========================
+   Base
+=========================== */
 body {
   width: 100%;
   margin: 0;
@@ -13,19 +17,25 @@ body {
   color: #eaeaea;            /* 文字は淡いグレーで柔らかく */
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 16px;
-  
 }
+
 header, section {
   padding: 20px;
   text-align: center;
 }
+
 h1, h2 {
   margin: 0.5em 0;
 }
+
 p {
   margin: 1em auto;
   max-width: 600px;
 }
+
+/* ===========================
+   Works Section
+=========================== */
 #works {
   display: flex;
   flex-wrap: wrap;
@@ -35,14 +45,17 @@ p {
   margin: 0 auto;
   background-color: rgba(245, 245, 220, 0.9);
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px; /* まとめた */
 }
-#works h2, .project{
-    color: black;
+
+#works h2,
+.project {
+  color: black;
 }
 
 .projects h2 {
-  margin-bottom: 20px; /* 今より少し余裕を足す */
-  text-align: center;  /* 必要なら中央揃えもあり */
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .project img {
@@ -51,25 +64,67 @@ p {
   border-radius: 8px;
 }
 
+/* ===========================
+   Contact Section
+=========================== */
 #contact-bg {
-  max-width: 600px; /* 500pxから少し広げる */
-  margin: 40px auto; /* 上下の余白も広げる */
-  padding: 30px;     /* 内側余白を大きめに */
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
   background-color: #3a3a3a; /* 少し明るめのグレー */
   color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
 
-#contact-bg, #works {
-  border-radius: 8px;/* 角を少し丸めると柔らかい印象 */
-}
-.contact-text{
+.contact-text {
   color: black;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #c0a167;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #a88b54;
+}
+
+/* ===========================
+   Utility
+=========================== */
 .hidden {
   display: none;
 }
+
 #info-btn {
   padding: 10px;
   margin: 10px;
@@ -79,81 +134,3 @@ p {
   border: none;
   border-radius: 5px;
 }
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px; /* 各要素の間に余白 */
-}
-
-label {
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 12px;   /* 入力欄を広めに */
-  margin-bottom: 20px; /* 下に余白を追加 */
-  font-size: 1rem;
-  border: 1px solid #bbb;
-  border-radius: 6px;
-}
-
-form button {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
-  background-color: #c0a167; /* 好きな色に調整OK */
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-form button:hover {
-  background-color: #a88b54;
-}
-
-input, textarea, form button {
-  width: 100%;
-  padding: 12px;
-  font-size: 1rem;
-  border-radius: 6px;
-  box-sizing: border-box; /* 枠線込みで幅を揃える */
-}
-
-input, textarea {
-  border: 1px solid #bbb;
-  margin-bottom: 15px; /* 少しだけ狭める */
-}
-
-form button {
-  border: 1px solid #bbb; /* 入力欄と同じ線で統一感UP */
-  background-color: #c0a167;
-  color: white;
-  transition: background-color 0.3s ease;
-}
-
-form button:hover {
-  background-color: #a88b54;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
