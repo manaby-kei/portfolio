@@ -55,7 +55,6 @@ p {
   padding: 30px;     /* 内側余白を大きめに */
   border-radius: 10px; /* 角を少し丸めると柔らかい印象 */
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  background-color: rgba(245, 245, 220, 0.9);
 }
 
 .contact-text{
@@ -108,6 +107,7 @@ button {
 button:hover {
   background-color: #3a3a92; /* 少し暗めに */
 }
+
 
 
 
