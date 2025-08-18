@@ -34,6 +34,7 @@ p {
   max-width: 800px;
   margin: 0 auto;
   background-color: rgba(245, 245, 220, 0.9);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 #works h2, .project{
     color: black;
@@ -53,10 +54,13 @@ p {
   max-width: 600px; /* 500pxから少し広げる */
   margin: 40px auto; /* 上下の余白も広げる */
   padding: 30px;     /* 内側余白を大きめに */
+  background-color: #2a2a2a; /* 少し明るいグレーで浮かせる */
+  color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
 
 #contact-bg, #works {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   border-radius: 8px;/* 角を少し丸めると柔らかい印象 */
 }
 .contact-text{
@@ -97,18 +101,19 @@ input, textarea {
 
 button {
   width: 100%;
-  padding: 14px;
   font-size: 1rem;
-  background-color: #4a4aa3; /* 落ち着いた紫 */
+  cursor: pointer;
+  background-color: #c5a46d; /* ゴールドっぽい色 */
   color: #fff;
   border: none;
-  border-radius: 6px;
-  cursor: pointer;
+  padding: 10px 16px;
+  border-radius: 5px;
 }
 
 button:hover {
   background-color: #3a3a92; /* 少し暗めに */
 }
+
 
 
 
