@@ -1,11 +1,3 @@
-// #info-btn が無い場合のエラー防止
-const infoBtn = document.querySelector('#info-btn');
-if (infoBtn) {
-  const infoText = document.querySelector('#info-text');
-  infoBtn.addEventListener('click', () => {
-    if (infoText) infoText.classList.toggle('hidden');
-  });
-}
 
 // 画像モーダル
 const modal    = document.getElementById('modal');
