@@ -27,17 +27,16 @@ header, section {
 
 /* 見出し */
 h1 {
-  font-size: 2.2rem; /* 約35px */
+  font-size: 2.2rem;
   font-weight: bold;
-}
-h2 {
-  font-size: 1.6rem; /* 約25px */
-  margin-top: 1.5em;
-}
-
-h1, h2 {
   margin: 0.5em 0;
 }
+
+h2 {
+  font-size: 1.6rem;
+  margin: 1.5em 0 0.5em 0; /* 上だけ大きめに */
+}
+
 
 p {
   margin: 1em auto;
@@ -205,6 +204,7 @@ form button:hover {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
+
 
 
 
