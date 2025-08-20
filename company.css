@@ -1,0 +1,250 @@
+/* ====== 基本設定 ====== */
+body {
+  margin: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ===== 全体統一感 ===== */
+section {
+  padding: 60px 20px;
+}
+#about { margin-bottom: 60px; }
+
+/* ===== 見出し ===== */
+section h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #1E3A8A;
+  position: relative;
+  letter-spacing: 1px;
+}
+section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #1E3A8A;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ===== ヘッダー ===== */
+header {
+  background-color: #1E3A8A;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .logo { font-size: 1.5rem; font-weight: bold; }
+nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
+nav a:hover { text-decoration: underline; }
+
+/* ===== ヒーロー ===== */
+#hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(to bottom, #EAF2FF, #ffffff);
+}
+#hero h1 { font-size: 2rem; margin-bottom: 10px; color: #1E3A8A; }
+#hero p { color: #555; }
+
+/* ===== 信頼性セクション ===== */
+#reliability .grid-2col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 20px auto 0;
+}
+#reliability .card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+#reliability .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+#reliability h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #1E3A8A;
+}
+#reliability p {
+  margin: 0;
+  color: #555;
+}
+
+/* ===== 事業内容 ===== */
+#services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 20px auto 0;
+  padding: 0;
+  list-style: none;
+}
+#services li {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+#services li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+#services li h3 { margin-bottom: 10px; font-size: 1.2rem; color: #1E3A8A; }
+#services li p { margin: 0; color: #555; line-height: 1.5; }
+
+/* ===== お知らせ ===== */
+#news ul {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+#news li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+#news li::before {
+  content: "📌";
+  margin-right: 8px;
+  color: #1E3A8A;
+}
+#news li p { margin: 0; color: #333; }
+#news li span.date {
+  margin-left: auto;
+  color: #888;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+#news li:hover { background: #f8faff; }
+#news li:first-child {
+  font-weight: bold;
+  color: #1E3A8A;
+  background: #f5f7fb;
+  border-left: 3px solid #1E3A8A;
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+#news li:last-child { border-bottom: none; }
+
+/* ===== 会社概要 ===== */
+#about table {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+#about th,
+#about td {
+  padding: 14px 18px;
+}
+#about th {
+  background: #f3f4f6;
+  color: #1E3A8A;
+  font-weight: 600;
+  width: 30%;
+}
+
+/* ===== お問い合わせ ===== */
+#contact {
+  background-color: #F3F4F6;
+  padding: 60px 20px;
+  text-align: center;
+}
+#contact h2 { color: #1E3A8A; }
+a.btn {
+  display: inline-block;
+  background-color: #1E3A8A;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+a.btn:hover {
+  background-color: #163372;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+.fake-notice { color: #d32f2f; font-size: 14px; margin-top: 5px; }
+
+/* ===== フッター ===== */
+footer {
+  background-color: #1E3A8A;
+  color: white;
+  text-align: center;
+  padding: 15px 10px;
+  margin-top: 40px;
+}
+
+/* ===== モバイル調整 ===== */
+@media (max-width: 600px) {
+  #hero h1 { font-size: 1.5rem; word-break: keep-all; }
+  #hero p { font-size: 0.95rem; }
+
+  #reliability .grid-2col { grid-template-columns: 1fr; }
+  #services li { padding: 16px; font-size: 0.9rem; }
+
+  #news li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  #about table { width: 100%; display: block; overflow-x: auto; font-size: 0.9rem; }
+
+  a.btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 14px;
+    font-size: 1rem;
+  }
+
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+  nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 15px;
+    justify-items: center;
+  }
+  nav a {
+    margin: 0;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+  section h2 { font-size: 1.4rem; letter-spacing: 0.5px; }
+}
