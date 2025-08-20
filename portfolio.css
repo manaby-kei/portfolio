@@ -16,12 +16,23 @@ body {
   background-color: #1c1f26; /* ダークネイビー */
   color: #eaeaea;            /* 文字は淡いグレーで柔らかく */
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 16px;
+  font-size: 17px; /* 全体を少し読みやすく */
+  line-height: 1.6; /* 行間もゆったり */
 }
 
 header, section {
   padding: 20px;
   text-align: center;
+}
+
+/* 見出し */
+h1 {
+  font-size: 2.2rem; /* 約35px */
+  font-weight: bold;
+}
+h2 {
+  font-size: 1.6rem; /* 約25px */
+  margin-top: 1.5em;
 }
 
 h1, h2 {
@@ -31,6 +42,20 @@ h1, h2 {
 p {
   margin: 1em auto;
   max-width: 600px;
+  font-size: 1rem; /* 16px程度 */
+}
+
+/* スマホ用 */
+@media (max-width: 600px) {
+  body {
+    font-size: 15px;
+  }
+  h1 {
+    font-size: 1.8rem; /* 約29px */
+  }
+  h2 {
+    font-size: 1.4rem; /* 約22px */
+  }
 }
 
 /* ===========================
@@ -180,5 +205,6 @@ form button:hover {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
+
 
 
