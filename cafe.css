@@ -1,87 +1,132 @@
 /* cafe.css */
+
+/* ====== 基本 ====== */
 body {
   margin: 0;
   font-family: 'Noto Sans JP', sans-serif;
+  background-color: #FFF8E7; /* 温かいクリーム系 */
+  color: #333;
 }
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #303092;
+  background-color: #4A90E2; /* 柔らかめブルー */
   color: white;
+  border-radius: 0 0 10px 10px;
 }
+
 nav a {
   color: white;
   margin-left: 15px;
   text-decoration: none;
+  font-weight: 500;
 }
+
+
+/* ====== Hero ====== */
 #hero {
   text-align: center;
-  padding: 30px 20px; /* 上下余白増 */
+  padding: 40px 20px;
 }
+
 #hero img {
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
-  border: 3px solid #303092; /* 少し太めで強調 */
+  border: 3px solid #4A90E2; /* ヘッダー色に合わせる */
   border-radius: 15px;
-  display: block; /* 中央揃え用 */
-  margin: 0 auto; /* 左右中央 */
+  display: block;
+  margin: 0 auto;
 }
-#toggle-btn {
+
+#toggle-btn,
+#slide-btn {
   padding: 10px 20px;
-  margin: 20px auto; /* 上下20px、左右中央 */
-  display: block; /* 中央揃え用 */
+  margin: 20px auto;
+  display: block;
   cursor: pointer;
-  background-color: #303092;
-  color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  background-color: #FFB74D; /* 暖色系ボタン */
+  color: white;
+  font-weight: bold;
+  transition: background 0.3s;
 }
-#toggle-btn:hover {
-  background-color: #3f51b5;
+
+#toggle-btn:hover,
+#slide-btn:hover {
+  background-color: #FFA726;
 }
+
+/* ====== Menu ====== */
+#menu-bg {
+  background-color: rgba(255, 243, 224, 0.9); /* 温かいクリーム系 */
+  max-width: 600px;
+  padding: 10px 0 40px 0;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
 #menu {
   max-width: 500px;
   margin: 20px auto;
 }
-#menu-bg{
-  background-color: rgba(200, 230, 201, 0.9);
-  max-width: 600px; 
-  padding: 5px 0 40px 0;
-  margin: 0 auto;
-}
+
 .menu-items {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+
 .item {
-  padding: 10px;
-  border: 1px solid #303092;
+  padding: 12px;
+  border: 1px solid #FFA726; /* ボーダーも暖色系に */
+  border-radius: 8px;
   transition: background 0.3s;
-  background-color: rgb(202, 197, 197);
+  background-color: #FFF3E0;
 }
+
 .item:hover {
-  background-color: #e0e0e0;
+  background-color: #FFE0B2;
 }
+
+/* ====== Contact ====== */
 #contact {
   text-align: center;
   padding: 20px;
 }
+
+#contact-bg {
+  background-color: rgba(255, 248, 220, 0.9);
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 0 20px 0;
+  border-radius: 10px;
+}
+
+.fake-notice {
+  color: #d32f2f;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
 #contact a {
   color: #303092;
   text-decoration: none;
   border: 2px solid #303092;
   padding: 5px 10px;
 }
+/* ====== メディアクエリ ====== */
 @media (max-width: 600px) {
   header { flex-direction: column; }
   nav { margin-top: 10px; }
   #menu { max-width: 90%; }
   #contact-bg { max-width: 90%; }
 }
-main {
+
+in {
   transition: background 0.3s;
 }
 .main-bg{
@@ -99,16 +144,7 @@ main {
 #slide-btn:hover {
   background-color: #1ab888;
 }
-#contact-bg{
- background-color: rgba(245, 245, 220, 0.9);
- max-width: 500px;
- margin: 0 auto;
- padding: 0 0 20px 0;
-}
-.fake-notice {
-  color: #d32f2f; /* 赤で目立つ */
-  font-size: 14px;
-  margin-top: 5px;
-}
+
+
 
 
