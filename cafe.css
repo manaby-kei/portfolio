@@ -41,6 +41,7 @@ nav a {
   margin: 0 auto;
 }
 
+/* ====== ボタン共通スタイル ====== */
 #toggle-btn,
 #slide-btn {
   padding: 10px 20px;
@@ -49,16 +50,29 @@ nav a {
   cursor: pointer;
   border: none;
   border-radius: 8px;
-  background-color: #FFB74D; /* 暖色系ボタン */
   color: white;
   font-weight: bold;
+  font-size: 1rem;
   transition: background 0.3s;
 }
 
-#toggle-btn:hover,
-#slide-btn:hover {
-  background-color: #FFA726;
+/* ====== ボタン個別カラー ====== */
+#toggle-btn {
+  background-color: #FFB74D; /* 暖色系オレンジ */
 }
+
+#toggle-btn:hover {
+  background-color: #FFA726; /* 少し濃いオレンジ */
+}
+
+#slide-btn {
+  background-color: #FF8A65; /* 暖色系コーラル */
+}
+
+#slide-btn:hover {
+  background-color: #FF7043; /* 少し濃いコーラル */
+}
+
 
 /* ====== Menu ====== */
 #menu-bg {
@@ -129,21 +143,13 @@ nav a {
 in {
   transition: background 0.3s;
 }
-.main-bg{
-  background-color: #4682B4;
+
+/* ====== 背景切り替え用 ====== */
+.main-bg {
+  background-color: #FFFBF0; /* 柔らかいクリーム系 */
+  transition: background 0.3s;
 }
-#slide-btn {
-  padding: 10px 20px;
-  margin: 10px auto;
-  display: block;
-  background-color: #169770;
-  color: white;
-  border: none;
-  border-radius: 5px;
-}
-#slide-btn:hover {
-  background-color: #1ab888;
-}
+
 
 
 
