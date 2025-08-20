@@ -1,10 +1,12 @@
-/* cafe.css */
+/* =========================
+   カフェサイト用CSS（ポップ寄り＋メリハリ）
+========================= */
 
 /* ====== 基本 ====== */
 body {
   margin: 0;
   font-family: 'Noto Sans JP', sans-serif;
-  background-color: #FFF8E7; /* 温かいクリーム系 */
+  background-color: #FFF8E7; /* 優しいクリーム系 */
   color: #333;
 }
 
@@ -13,7 +15,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #4A90E2; /* 柔らかめブルー */
+  background-color: #4A90E2; /* 柔らかめブルーでアクセント */
   color: white;
   border-radius: 0 0 10px 10px;
 }
@@ -24,7 +26,6 @@ nav a {
   text-decoration: none;
   font-weight: 500;
 }
-
 
 /* ====== Hero ====== */
 #hero {
@@ -41,7 +42,7 @@ nav a {
   margin: 0 auto;
 }
 
-/* ====== ボタン共通スタイル ====== */
+/* ====== ボタン共通 ====== */
 #toggle-btn,
 #slide-btn {
   padding: 10px 20px;
@@ -58,25 +59,24 @@ nav a {
 
 /* ====== ボタン個別カラー ====== */
 #toggle-btn {
-  background-color: #FFB74D; /* 暖色系オレンジ */
+  background-color: #FFB74D; /* オレンジ系 */
 }
 
 #toggle-btn:hover {
-  background-color: #FFA726; /* 少し濃いオレンジ */
+  background-color: #FFA726;
 }
 
 #slide-btn {
-  background-color: #FF8A65; /* 暖色系コーラル */
+  background-color: #4DB6AC; /* パステルグリーン */
 }
 
 #slide-btn:hover {
-  background-color: #FF7043; /* 少し濃いコーラル */
+  background-color: #26A69A;
 }
 
-
-/* ====== Menu ====== */
+/* ====== メニュー ====== */
 #menu-bg {
-  background-color: rgba(255, 243, 224, 0.9); /* 温かいクリーム系 */
+  background-color: #E0F7FA; /* 薄いパステルブルーで差別化 */
   max-width: 600px;
   padding: 10px 0 40px 0;
   margin: 20px auto;
@@ -96,24 +96,24 @@ nav a {
 
 .item {
   padding: 12px;
-  border: 1px solid #FFA726; /* ボーダーも暖色系に */
+  border: 1px solid #4A90E2; /* メニューに強調ライン */
   border-radius: 8px;
   transition: background 0.3s;
-  background-color: #FFF3E0;
+  background-color: #FFF3E0; /* 温かい背景で文字が見やすい */
 }
 
 .item:hover {
-  background-color: #FFE0B2;
+  background-color: #FFE0B2; /* ホバー時に少し強調 */
 }
 
-/* ====== Contact ====== */
+/* ====== お問い合わせ ====== */
 #contact {
   text-align: center;
   padding: 20px;
 }
 
 #contact-bg {
-  background-color: rgba(255, 248, 220, 0.9);
+  background-color: #FCE4EC; /* 薄ピンクでメリハリ */
   max-width: 500px;
   margin: 0 auto;
   padding: 0 0 20px 0;
@@ -121,17 +121,25 @@ nav a {
 }
 
 .fake-notice {
-  color: #d32f2f;
+  color: #d32f2f; /* 重要通知を赤で目立たせる */
   font-size: 14px;
   margin-top: 5px;
 }
 
 #contact a {
-  color: #303092;
+  color: #4A90E2;
   text-decoration: none;
-  border: 2px solid #303092;
+  border: 2px solid #4A90E2;
   padding: 5px 10px;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
 }
+
+#contact a:hover {
+  background-color: #4A90E2;
+  color: white;
+}
+
 /* ====== メディアクエリ ====== */
 @media (max-width: 600px) {
   header { flex-direction: column; }
@@ -140,17 +148,8 @@ nav a {
   #contact-bg { max-width: 90%; }
 }
 
-in {
-  transition: background 0.3s;
-}
-
 /* ====== 背景切り替え用 ====== */
 .main-bg {
   background-color: #FFFBF0; /* 柔らかいクリーム系 */
   transition: background 0.3s;
 }
-
-
-
-
-
