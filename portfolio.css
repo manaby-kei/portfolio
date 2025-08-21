@@ -205,6 +205,15 @@ form button:hover {
   transform: translateY(0) scale(1);
 }
 
+/* 画像が表示されない場合の代替テキスト用 */
+#works .work-image {
+  background-color: white; /* alt文字の背景を白に */
+  color: black;           /* alt文字を黒に */
+  text-align: center;     /* 中央寄せ */
+  font-weight: bold;
+  line-height: 1.4;
+  display: inline-block;
+}
 
 
 
