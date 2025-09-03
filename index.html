@@ -70,20 +70,7 @@
     <img class="modal-content" id="modal-img">
   </div>
 
+  <!-- 外部JS -->
   <script src="portfolio.js"></script>
-  <script>
-    // フェードイン
-    const fadeElems = document.querySelectorAll('.fadein');
-    const runFadeIn = () => {
-      fadeElems.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 50) {
-          el.classList.add('show');
-        }
-      });
-    };
-    window.addEventListener('load', runFadeIn);
-    window.addEventListener('scroll', runFadeIn);
-  </script>
 </body>
 </html>
