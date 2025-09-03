@@ -1,26 +1,14 @@
 /* ===========================
-   Responsive
-=========================== */
-@media (max-width: 600px) {
-  #works { max-width: 90%; }
-  .project img { width: 100%; }
-  #contact-bg { max-width: 90%; }
-  .projects-grid {
-    grid-template-columns: 1fr; /* 1列表示 */
-  }
-}
-
-/* ===========================
    Base
 =========================== */
 body {
   width: 100%;
   margin: 0;
-  background-color: #1c1f26; /* ダークネイビー */
-  color: #eaeaea;            /* 文字は淡いグレーで柔らかく */
+  background-color: #1c1f26;
+  color: #eaeaea;
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 17px; /* 全体を少し読みやすく */
-  line-height: 1.6; /* 行間もゆったり */
+  font-size: 17px;
+  line-height: 1.6;
 }
 
 header, section {
@@ -28,7 +16,6 @@ header, section {
   text-align: center;
 }
 
-/* 見出し */
 h1 {
   font-size: 2.2rem;
   font-weight: bold;
@@ -37,175 +24,43 @@ h1 {
 
 h2 {
   font-size: 1.6rem;
-  margin: 1.5em 0 0.5em 0; /* 上だけ大きめに */
+  margin: 1.5em 0 0.5em 0;
 }
-
 
 p {
   margin: 1em auto;
   max-width: 600px;
-  font-size: 1rem; /* 16px程度 */
+  font-size: 1rem;
 }
 
-/* スマホ用 */
+/* ===========================
+   Responsive
+=========================== */
 @media (max-width: 600px) {
-  body {
-    font-size: 15px;
-  }
-  h1 {
-    font-size: 1.8rem; /* 約29px */
-  }
-  h2 {
-    font-size: 1.4rem; /* 約22px */
-  }
+  body { font-size: 15px; }
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.4rem; }
 }
 
 /* ===========================
    Works Section
 =========================== */
 #works {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2列固定 */
-  gap: 20px;
-  max-width: 900px; /* 画面幅に合わせて調整 */
-  margin: 0 auto;
-  background-color: rgba(245, 245, 220, 0.9);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  border-radius: 8px;
-  padding: 20px;
-}
-
-#works h2,
-.project-text,
-.project p {
-  color: black;
-}
-
-.project img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-
- .work-image {
-  width: 100%;
-  max-width: 600px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.work-image:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-}
-
-/* ===========================
-   Contact Section
-=========================== */
-.contact-bg {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 30px;
-  background-color: #3a3a3a; /* 少し明るめのグレー */
-  color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-label {
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-input,
-textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 20px;
-  font-size: 1rem;
-  border: 1px solid #bbb;
-  border-radius: 6px;
-}
-
-input, textarea, form button {
-  width: 100%;       /* すべて同じ幅に */
-  box-sizing: border-box; /* padding込みで幅計算 */
-}
-
-form button {
-  padding: 14px;     /* 入力欄と高さを揃える */
-  font-size: 1rem;
-  border: none;
-  border-radius: 6px;
-  background-color: #c0a167;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-form button:hover {
-  background-color: #a88b54;
-}
-
-/* ===========================
-   Utility
-=========================== */
-.hidden {
-  display: none;
-}
-
-/* ===========================
-   モーダル
-=========================== */
-   
-/* モーダル（非表示の初期状態） */
-.modal {
-  opacity: 0;
-  visibility: hidden;   /* displayじゃなくvisibilityを使う */
-  position: fixed;
-  z-index: 999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.8);
-  transition: opacity 0.4s ease;
-}
-
-/* 表示時に追加するクラス */
-.modal.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-.modal-content {
-  display: block;
-  margin: 5% auto;
-  max-width: 90%;
-  border-radius: 8px;
-  transform: scale(0.95);
-  transition: transform 0.3s ease;
-}
-.modal.show .modal-content {
-  transform: scale(1);
-}
-
-/* Works Section Grid */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2列 */
-  gap: 20px;
+  display: block; /* wrapper用 */
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
+}
+
+/* グリッドレイアウト */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
   background-color: rgba(245, 245, 220, 0.9);
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   border-radius: 8px;
+  padding: 20px;
 }
 
 .projects-grid .project img {
@@ -227,29 +82,93 @@ form button:hover {
   text-align: center;
 }
 
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ===========================
-   フェードインアニメーション
+   Contact Section
+=========================== */
+.contact-bg {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label { font-weight: bold; margin-bottom: 8px; }
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+form button {
+  padding: 14px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #c0a167;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover { background-color: #a88b54; }
+
+/* ===========================
+   モーダル
+=========================== */
+.modal {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  transition: opacity 0.4s ease;
+}
+
+.modal.show { opacity: 1; visibility: visible; }
+
+.modal-content {
+  display: block;
+  margin: 5% auto;
+  max-width: 90%;
+  border-radius: 8px;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content { transform: scale(1); }
+
+/* ===========================
+   フェードイン
 =========================== */
 .fadein {
   opacity: 0;
-  transform: translateY(60px) scale(0.95); /* 下＋少し小さく */
+  transform: translateY(60px) scale(0.95);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
 .fadein.show {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
-
-/* 画像が表示されない場合の代替テキスト用 */
-#works .work-image {
-  background-color: white; /* alt文字の背景を白に */
-  color: black;           /* alt文字を黒に */
-  text-align: center;     /* 中央寄せ */
-  font-weight: bold;
-  line-height: 1.4;
-  display: inline-block;
-}
-
-
-
-
