@@ -5,6 +5,9 @@
   #works { max-width: 90%; }
   .project img { width: 100%; }
   #contact-bg { max-width: 90%; }
+  .projects-grid {
+    grid-template-columns: 1fr; /* 1列表示 */
+  }
 }
 
 /* ===========================
@@ -61,15 +64,15 @@ p {
    Works Section
 =========================== */
 #works {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2列固定 */
   gap: 20px;
-  max-width: 800px;
+  max-width: 900px; /* 画面幅に合わせて調整 */
   margin: 0 auto;
   background-color: rgba(245, 245, 220, 0.9);
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  border-radius: 8px; /* まとめた */
+  border-radius: 8px;
+  padding: 20px;
 }
 
 #works h2,
@@ -192,6 +195,38 @@ form button:hover {
   transform: scale(1);
 }
 
+/* Works Section Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2列 */
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(245, 245, 220, 0.9);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+.projects-grid .project img {
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projects-grid .project img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.projects-grid .project p {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: black;
+  text-align: center;
+}
+
 /* ===========================
    フェードインアニメーション
 =========================== */
@@ -214,6 +249,7 @@ form button:hover {
   line-height: 1.4;
   display: inline-block;
 }
+
 
 
 
