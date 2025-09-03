@@ -1,5 +1,6 @@
-
-// 画像モーダル
+// ============================
+// モーダル処理
+// ============================
 const modal    = document.getElementById('modal');
 const modalImg = document.getElementById('modal-img');
 const images   = document.querySelectorAll('.work-image');
@@ -14,17 +15,22 @@ if (modal && modalImg && images.length) {
     });
   });
 }
+
 if (closeBtn) {
   closeBtn.addEventListener('click', () => modal.classList.remove('show'));
 }
+
 if (modal) {
   modal.addEventListener('click', (e) => {
     if (e.target === modal) modal.classList.remove('show');
   });
 }
 
-// スクロール時フェードイン（読み込み時にも1回実行）
+// ============================
+// フェードイン処理
+// ============================
 const fadeElems = document.querySelectorAll('.fadein');
+
 const runFadeIn = () => {
   fadeElems.forEach(el => {
     const rect = el.getBoundingClientRect();
@@ -33,5 +39,7 @@ const runFadeIn = () => {
     }
   });
 };
+
+// 読み込み時とスクロール時に実行
 window.addEventListener('load', runFadeIn);
 window.addEventListener('scroll', runFadeIn);
