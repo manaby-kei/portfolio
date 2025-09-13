@@ -1,0 +1,88 @@
+/* portfolio.css */
+
+@media (max-width: 600px) {
+  #works { max-width: 90%; }
+  .project img { width: 100%; }
+  #contact-bg { max-width: 90%; }
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  background-color: #303092bb;
+  color: #f5f6f7;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+}
+header, section {
+  padding: 20px;
+  text-align: center;
+}
+h1, h2 {
+  margin: 0.5em 0;
+}
+p {
+  margin: 1em auto;
+  max-width: 600px;
+}
+#works {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: rgba(245, 245, 220, 0.9);
+}
+#works h2, .project{
+    color: black;
+}
+.project {
+  width: 300px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.project img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+#contact-form {
+  width: 70vw;
+  max-width: 600px;
+  min-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.539);
+}
+#contact-bg {
+  background-color: rgba(245, 245, 220, 0.9); /* カフェと統一 */
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.contact-text{
+  color: black;
+}
+.hidden {
+  display: none;
+}
+#info-btn {
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: #303092;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+#info-btn:hover {
+  background-color: #3f51b5;
+}
+
+
+
+
+
+
+
