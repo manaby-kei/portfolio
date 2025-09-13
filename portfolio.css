@@ -1,88 +1,174 @@
-/* portfolio.css */
-
-@media (max-width: 600px) {
-  #works { max-width: 90%; }
-  .project img { width: 100%; }
-  #contact-bg { max-width: 90%; }
-}
-
+/* ===========================
+   Base
+=========================== */
 body {
   width: 100%;
   margin: 0;
-  background-color: #303092bb;
-  color: #f5f6f7;
+  background-color: #1c1f26;
+  color: #eaeaea;
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 16px;
+  font-size: 17px;
+  line-height: 1.6;
 }
+
 header, section {
   padding: 20px;
   text-align: center;
 }
-h1, h2 {
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
   margin: 0.5em 0;
 }
+
+h2 {
+  font-size: 1.6rem;
+  margin: 1.5em 0 0.5em 0;
+}
+
 p {
   margin: 1em auto;
   max-width: 600px;
+  font-size: 1rem;
 }
+
+/* ===========================
+   Responsive
+=========================== */
+@media (max-width: 600px) {
+  body { font-size: 15px; }
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.4rem; }
+}
+
+/* ===========================
+   Works Section
+=========================== */
 #works {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: block; /* wrapper用 */
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* グリッドレイアウト */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  max-width: 800px;
-  margin: 0 auto;
   background-color: rgba(245, 245, 220, 0.9);
-}
-#works h2, .project{
-    color: black;
-}
-.project {
-  width: 300px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-.project img {
-  max-width: 100%;
-  height: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   border-radius: 8px;
-}
-#contact-form {
-  width: 70vw;
-  max-width: 600px;
-  min-width: 300px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.539);
-}
-#contact-bg {
-  background-color: rgba(245, 245, 220, 0.9); /* カフェと統一 */
-  max-width: 500px;
-  margin: 0 auto;
   padding: 20px;
 }
-.contact-text{
-  color: black;
-}
-.hidden {
-  display: none;
-}
-#info-btn {
-  padding: 10px;
-  margin: 10px;
+
+.projects-grid .project img {
+  width: 100%;
+  border-radius: 8px;
   cursor: pointer;
-  background-color: #303092;
-  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projects-grid .project img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.projects-grid .project p {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: black;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===========================
+   Contact Section
+=========================== */
+.contact-bg {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label { font-weight: bold; margin-bottom: 8px; }
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+form button {
+  padding: 14px;
+  font-size: 1rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
+  background-color: #c0a167;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-#info-btn:hover {
-  background-color: #3f51b5;
+
+form button:hover { background-color: #a88b54; }
+
+/* ===========================
+   モーダル
+=========================== */
+.modal {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  transition: opacity 0.4s ease;
 }
 
+.modal.show { opacity: 1; visibility: visible; }
 
+.modal-content {
+  display: block;
+  margin: 5% auto;
+  max-width: 90%;
+  border-radius: 8px;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
 
+.modal.show .modal-content { transform: scale(1); }
 
+/* ===========================
+   フェードイン
+=========================== */
+.fadein {
+  opacity: 0;
+  transform: translateY(60px) scale(0.95);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
 
-
-
+.fadein.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
