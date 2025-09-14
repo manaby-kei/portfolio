@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>じゃんけんゲーム</title>
+<style>
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --accent:#7dd3fc;
+  --win:#10b981;
+  --lose:#ef4444;
+  --draw:#f59e0b;
+  color-scheme: dark;
+}
+*{box-sizing:border-box;}
+body{
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 60%);
+  margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px;
+  color: #111;
+}
+.card{
+  width:100%; max-width:720px; background: rgba(255,255,255,0.9);
+  border-radius:14px; padding:20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+h1{margin:0 0 8px 0; font-size:1.4rem;}
+p.lead{margin:0 0 18px 0; color:#d1440c;}
+.choices{display:flex; gap:12px; margin:16px 0 8px;}
+.btn{
+  flex:1; padding:14px; border-radius:10px; border:none; cursor:pointer; font-weight:600;
+  background: linear-gradient(180deg, #ffffff, #e6f0fa);
+  color: #111;
+  transition:transform .12s ease, box-shadow .12s ease, filter .12s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08), inset 0 -2px 0 rgba(0,0,0,0.05);
+  user-select:none;
+}
+.btn:active{transform:translateY(2px)}
+.icon{display:block; font-size:1.6rem;}
+.result{
+  display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:12px;
+  padding:12px; border-radius:10px;
+  background: rgba(240, 244, 248, 0.8);
+  border: 1px solid rgba(200,200,200,0.3);
+}
+.status{font-weight:700; font-size:1.05rem;}
+.details{font-size:0.9rem; color:#cfe9ff;}
+.status, .details, #lastOutcome {color: #111;}
+.scoreboard{display:flex; gap:12px; margin-top:14px;}
+.scorebox{flex:1; padding:10px; border-radius:8px; text-align:center; background:rgba(255,255,255,0.02);}
+.small{font-size:0.85rem; color:#325977}
+.big{font-size:1.6rem; font-weight:800}
+.controls{display:flex; gap:8px; margin-top:12px;}
+.ghost{background:transparent; border:1px solid rgba(255,255,255,0.06)}
+.win{border-color: rgba(16,185,129,0.18); box-shadow:0 6px 20px rgba(16,185,129,0.06)}
+.lose{border-color: rgba(239,68,68,0.18); box-shadow:0 6px 20px rgba(239,68,68,0.06)}
+.draw{border-color: rgba(245,158,11,0.12); box-shadow:0 6px 20px rgba(245,158,11,0.04)}
+
+#winRate{margin-top:8px;font-size: 30px; font-weight:bold; text-align:right; max-width:100%; overflow:hidden;}
+
+@keyframes bounce {
+  0%{transform:scale(1);}
+  30%{transform:scale(1.3);}
+  50%{transform:scale(1);}
+  70%{transform:scale(1.15);}
+  100%{transform:scale(1);}
+}
+
+@keyframes shake {
+  0%{transform:translateX(0);}
+  25%{transform:translateX(-5px);}
+  50%{transform:translateX(5px);}
+  75%{transform:translateX(-5px);}
+  100%{transform:translateX(0);}
+}
+
+.bounce-win{animation:bounce 0.6s ease; color: var(--win);}
+.bounce-lose{animation:shake 0.6s ease; color: var(--lose);}
+.bounce-draw{animation:bounce 0.3s ease; color: var(--draw);}
+
+.card.flash-win{animation:flash-win 0.8s ease;}
+@keyframes flash-win{
+  0%{background-color: rgba(255,255,255,0.9);}
+  50%{background-color: rgba(220,255,220,0.9);}
+  100%{background-color: rgba(255,255,255,0.9);}
+}
+
+footer{margin-top:16px; font-size:0.84rem; color:#29246b; display:flex; justify-content:space-between; align-items:center;}
+@media (max-width:480px){.choices{flex-direction:column}}
+</style>
+</head>
+<body>
+<main class="card" role="main">
+<h1>じゃんけんゲーム ✋✌️✊</h1>
+<p class="lead">ボタンを押してコンピュータと対戦しよう。勝敗とスコアを記録します。</p>
+
+<div>
+  <div class="choices" role="group" aria-label="じゃんけんの手">
+    <button class="btn" data-move="グー" title="グー (Rock)"><span class="icon">✊</span> グー</button>
+    <button class="btn" data-move="パー" title="パー (Paper)"><span class="icon">✋</span> パー</button>
+    <button class="btn" data-move="チョキ" title="チョキ (Scissors)"><span class="icon">✌️</span> チョキ</button>
+  </div>
+
+  <div class="result" id="resultCard" aria-live="polite">
+    <div>
+      <div class="status" id="statusText">待機中 — 手を選んでください</div>
+      <div class="details" id="detailText">あなた: — ｜ コンピュータ: —</div>
+    </div>
+    <div style="min-width:140px;text-align:right;">
+      <div class="small">勝敗</div>
+      <div id="lastOutcome" class="big">—</div>
+    </div>
+  </div>
+
+  <div class="scoreboard" aria-hidden="false">
+    <div class="scorebox"><div class="small">あなたの勝ち</div><div id="youScore" class="big">0</div></div>
+    <div class="scorebox"><div class="small">引き分け</div><div id="drawScore" class="big">0</div></div>
+    <div class="scorebox"><div class="small">コンピュータの勝ち</div><div id="compScore" class="big">0</div></div>
+  </div>
+  <p id="winRate">勝率: 0%</p>
+  
+  <div class="controls">
+    <button class="btn ghost" id="resetBtn">リセット</button>
+  </div>
+
+  <footer>
+    <div>静的ファイル（HTML/CSS/JS）で動作します</div>
+    <div style="opacity:.9">ヒント: ポートフォリオに「遊べる作品」として追加できます</div>
+  </footer>
+</div>
+</main>
+
+<script>
+let playerScore=0, computerScore=0, drawCount=0, totalGames=0, winCount=0;
+let winStreak=0;
+
+const choices=["グー","チョキ","パー"];
+
+document.querySelectorAll(".btn").forEach(button=>{
+  if(button.id==="resetBtn") return;
+  button.addEventListener("click", ()=>{
+    const playerChoice=button.dataset.move;
+    const computerChoice=choices[Math.floor(Math.random()*3)];
+    let outcome="";
+    if(playerChoice===computerChoice){
+      outcome="draw";
+      drawCount++;
+      winStreak=0;
+    }else if(
+      (playerChoice==="グー" && computerChoice==="チョキ")||
+      (playerChoice==="チョキ" && computerChoice==="パー")||
+      (playerChoice==="パー" && computerChoice==="グー")
+    ){
+      outcome="win";
+      playerScore++; winCount++; winStreak++;
+    }else{
+      outcome="lose";
+      computerScore++; winStreak=0;
+    }
+    totalGames++;
+
+    // スコア・結果表示
+    document.getElementById("lastOutcome").textContent=`あなた: ${playerChoice} / CPU: ${computerChoice}`;
+    document.getElementById("youScore").textContent=playerScore;
+    document.getElementById("drawScore").textContent=drawCount;
+    document.getElementById("compScore").textContent=computerScore;
+    const winRate=Math.round((winCount/totalGames)*100);
+    const winRateEl=document.getElementById("winRate");
+    winRateEl.textContent=`勝率: ${winRate}%`;
+
+    // アニメーション処理
+    winRateEl.classList.remove("bounce-win","bounce-lose","bounce-draw");
+    void winRateEl.offsetWidth;
+    if(outcome==="win") winRateEl.classList.add("bounce-win");
+    else if(outcome==="lose") winRateEl.classList.add("bounce-lose");
+    else winRateEl.classList.add("bounce-draw");
+
+    // 連勝演出
+    const cardEl = document.querySelector(".card");
+    cardEl.classList.remove("flash-win");
+    void cardEl.offsetWidth; // リセット用
+    if (winStreak >= 3) {
+      cardEl.classList.add("flash-win");
+    }
+  });
+});
+
+// リセットボタン
+document.getElementById("resetBtn").addEventListener("click", () => {
+  playerScore = 0;
+  computerScore = 0;
+  drawCount = 0;
+  totalGames = 0;
+  winCount = 0;
+  winStreak = 0;
+
+  document.getElementById("youScore").textContent = 0;
+  document.getElementById("drawScore").textContent = 0;
+  document.getElementById("compScore").textContent = 0;
+  document.getElementById("lastOutcome").textContent = "—";
+  document.getElementById("winRate").textContent = "勝率: 0%";
+});
+</script>
+</body>
+</html>
