@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>足し算計算機</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background-color: #f8f8f8; }
+        .container { max-width: 600px; margin: 0 auto; background-color: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+        form { display: flex; align-items: center; gap: 15px; }
+        input[type="number"] { padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; width: 100px; text-align: right;} /* widthを調整 */
+        button { padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; }
+        button:hover { background-color: #0056b3; }
+        .message { margin-top: 20px; padding: 15px; background-color: #e9f7ef; border: 1px solid #c3e6cb; border-radius: 6px; color: #155724; font-weight: bold; font-size: 1.2em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>シンプルな足し算計算機</h1>
+        
+        <!-- Flask から受け取った結果メッセージを表示 -->
+        <div class="message">{{ message }}</div>
+
+        <form method="POST" action="/">
+            <!-- name="num1" で最初の数値を受け取る -->
+            <input type="number" name="num1" placeholder="数値 1" required>
+            <span>+</span>
+            <!-- name="num2" で2番目の数値を受け取る -->
+            <input type="number" name="num2" placeholder="数値 2" required>
+            <button type="submit">計算</button>
+        </form>
+        
+        <p style="margin-top: 20px; font-size: 0.9em; color: #666;">
+            💡 ポイント: Flask 側で <code>request.form['num1']</code> と <code>request.form['num2']</code> の**文字列**を受け取り、<code>int()</code> で**整数に変換**してから計算しています。
+        </p>
+    </div>
+</body>
+</html>
