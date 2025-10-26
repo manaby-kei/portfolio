@@ -1,0 +1,24 @@
+body { font-family: sans-serif; padding: 20px; background-color: #f8f8f8; }
+.container { max-width: 600px; margin: 0 auto; background-color: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+form { display: flex; align-items: center; gap: 15px; }
+/* selectタグとinput type="number"のスタイル */
+input[type="number"], select {
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 6px;
+font-size: 16px;
+width: 100px;
+text-align: right;
+-webkit-appearance: none;
+-moz-appearance: none;
+
+appearance: none;
+
+background-color: white;
+cursor: pointer;
+}
+select { width: 70px; text-align: center; }
+button { padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; }
+button:hover { background-color: #0056b3; }
+.message { margin-top: 20px; padding: 15px; background-color: #e9f7ef; border: 1px solid #c3e6cb; border-radius: 6px; color: #155724; font-weight: bold; font-size: 1.2em; }
