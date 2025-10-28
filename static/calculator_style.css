@@ -1,0 +1,115 @@
+/* 全体設定 */
+body { 
+    font-family: 'Inter', sans-serif; 
+    padding: 20px; 
+    background-color: #f0f4f8; /* 柔らかい背景色 */
+    color: #333;
+    margin: 0;
+}
+.container { 
+    max-width: 650px; 
+    margin: 40px auto; 
+    background-color: white; 
+    padding: 35px; 
+    border-radius: 15px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* 強めの影 */
+}
+h1 { 
+    color: #1e3a8a; /* 濃い青に戻す */
+    border-bottom: 3px solid #bfdbfe; /* 薄い青に戻す */
+    padding-bottom: 15px; 
+    margin-bottom: 25px;
+    font-size: 2em;
+    text-align: center;
+}
+
+/* フォームの調整 (Flexboxで配置) */
+form { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    flex-wrap: wrap; /* 小さな画面で折り返す */
+    justify-content: center;
+}
+
+/* 入力欄とセレクトボックス */
+input[type="number"], select { 
+    padding: 12px; 
+    border: 2px solid #93c5fd; /* 薄い青に戻す */
+    border-radius: 8px; 
+    font-size: 1.1em; 
+    width: 120px; 
+    text-align: right;
+    -webkit-appearance: none; 
+    -moz-appearance: none;    
+    appearance: none;         
+    background-color: #f9fafb; /* ほぼ白の背景に戻す */
+    cursor: pointer;
+    transition: border-color 0.3s;
+} 
+input[type="number"]:focus, select:focus {
+    border-color: #1e3a8a; /* フォーカス時に濃い青に戻す */
+    outline: none;
+}
+select { 
+    width: 80px; 
+    text-align: center; 
+}
+span {
+    font-size: 1.5em;
+    color: #1e3a8a; /* 濃い青の演算子に戻す */
+}
+
+/* 計算ボタン */
+button { 
+    padding: 12px 25px; 
+    background-color: #10b981; /* 鮮やかな緑に戻す */
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-size: 1.1em; 
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+    flex-grow: 1; 
+    max-width: 150px;
+}
+button:hover { 
+    background-color: #059669; /* 濃い緑に戻す */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.4);
+}
+
+/* 結果メッセージ */
+.message { 
+    margin-top: 30px; 
+    margin-bottom: 30px;
+    padding: 20px; 
+    background-color: #d1fae5; /* 薄い緑の背景に戻す */
+    border: 2px solid #34d399; /* 緑のボーダーに戻す */
+    border-radius: 10px; 
+    color: #065f46; /* 濃い緑の文字に戻す */
+    font-weight: bold; 
+    font-size: 1.5em; 
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* モバイル対応: 画面幅が650px以下の場合の調整 */
+@media (max-width: 650px) {
+    .container {
+        margin: 20px;
+        padding: 20px;
+    }
+    form {
+        flex-direction: column; /* フォームアイテムを縦に並べる */
+        gap: 15px;
+    }
+    input[type="number"], select, button {
+        width: 100%; /* 全幅に広げる */
+        box-sizing: border-box; 
+    }
+    select {
+        height: 48px; /* 入力欄と高さを揃える */
+    }
+}

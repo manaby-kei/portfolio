@@ -1,70 +1,91 @@
-from flask import Flask, render_template, request
+# -*- coding: utf-8 -*-
+# Flaskと必要なライブラリのインポート
+from flask import Flask, render_template, request, redirect, url_for, jsonify
+import json
+import os
+
+# Firebase/Firestore接続用の設定（Canvas環境から自動で提供されるグローバル変数を使用）
+# __app_id, __firebase_config, __initial_auth_token はCanvas実行環境で定義されています
+app_id = os.environ.get('__app_id', 'default-app-id')
+firebase_config = json.loads(os.environ.get('__firebase_config', '{}'))
+initial_auth_token = os.environ.get('__initial_auth_token', '')
 
 app = Flask(__name__)
 
-# 四則演算のメインルート
-@app.route("/", methods=["GET", "POST"])
-def index():
-    # 入力値を保持するためのデフォルト値
-    num1_val = ""
-    num2_val = ""
-    result_message = "計算したい数値を入力し、演算子を選んでください"
-    
-    if request.method == "POST":
-        try:
-            # フォームデータから3つの値を取り出す
-            num1_str = request.form['num1']
-            num2_str = request.form['num2']
-            operator = request.form['operator']
+# --- ▼ 共通ヘルパー関数 (今後のFirestore接続用) ▼ ---
 
-            # 入力値を保持
-            num1_val = num1_str
-            num2_val = num2_str
-            
-            # 文字列を数値に変換 (割り算対応のためfloatを使用)
-            num1 = float(num1_str)
-            num2 = float(num2_str)
-            
-            result = None
-            
-            # 演算子に応じて計算を分岐
-            if operator == "+":
+# ToDoリスト機能のために、Firestoreの初期設定はテンプレートのJavaScriptで行います。
+# Python側は、ルーティングとテンプレートのレンダリングに集中します。
+
+# --- ▲ 共通ヘルパー関数 ▲ ---
+
+
+# --- 1. 計算機機能のルーティング ---
+
+@app.route('/calc', methods=['GET', 'POST'])
+def calculator_index():
+    # デフォルト値の設定
+    result = None
+    message = None
+    num1_val = request.form.get('num1', '') # 値がなければ空文字
+    num2_val = request.form.get('num2', '')
+    operator_val = request.form.get('operator', '+')
+
+    if request.method == 'POST':
+        try:
+            # フォームから数値と演算子を取得
+            num1 = float(num1_val)
+            num2 = float(num2_val)
+            operator = operator_val
+
+            # 四則演算の実行
+            if operator == '+':
                 result = num1 + num2
-            elif operator == "-":
+            elif operator == '-':
                 result = num1 - num2
-            elif operator == "*":
+            elif operator == '*':
                 result = num1 * num2
-            elif operator == "/":
-                # ゼロ除算エラーのチェック
+            elif operator == '/':
                 if num2 == 0:
-                    result_message = "エラー：0で割ることはできません。"
-                    # テンプレートを返して処理を終了
-                    return render_template("flask_test.html", 
-                                           message=result_message, 
-                                           num1_val=num1_val, 
-                                           num2_val=num2_val)
-                result = num1 / num2
-                
-            # 結果メッセージを作成 (小数点以下2桁で表示)
-            # 整数結果の場合、不要な .00 を表示しないように調整
-            if result == int(result):
-                result_message = f"{num1} {operator} {num2} = {int(result)} です！"
+                    message = "エラー: ゼロで割ることはできません。"
+                    result = None
+                else:
+                    result = num1 / num2
             else:
-                result_message = f"{num1} {operator} {num2} = {result:.2f} です！"
+                message = "エラー: 無効な演算子が選択されました。"
                 
-        except ValueError:
-            # 数値変換エラー
-            result_message = "エラー：有効な数値を入力してください。"
-        except Exception as e:
-            # その他の予期せぬエラー
-            result_message = f"予期せぬエラーが発生しました: {e}"
+            if result is not None:
+                message = f"{num1} {operator} {num2} = {result:.2f}"
             
-    # テンプレートをレンダリング
-    return render_template("flask_test.html", 
-                           message=result_message, 
-                           num1_val=num1_val, 
-                           num2_val=num2_val)
+        except ValueError:
+            message = "エラー: 無効な数値を入力しました。"
+        except Exception as e:
+            message = f"予期せぬエラーが発生しました: {e}"
+
+    # 結果と入力値をテンプレートに渡す
+    return render_template(
+        "calculator.html", 
+        message=message, 
+        result=result, 
+        num1_val=num1_val, 
+        num2_val=num2_val,
+        operator_val=operator_val
+    )
+
+# --- 2. ToDoリスト機能のルーティング ---
+
+@app.route('/', methods=['GET'])
+@app.route('/todo', methods=['GET'])
+def todo_index():
+    # ToDoリストのページを表示する
+    # ユーザー認証情報はJavaScript側で処理するため、ここでは認証トークンを渡す
+    return render_template(
+        "todo.html",
+        initial_auth_token=initial_auth_token,
+        firebase_config=json.dumps(firebase_config),
+        app_id=app_id
+    )
 
 if __name__ == '__main__':
-    # デバッグモードで実行
+    # 開発環境で実行
     app.run(debug=True)
