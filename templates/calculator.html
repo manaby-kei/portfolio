@@ -5,39 +5,41 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>四則演算計算機</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='calculator_style.css') }}">
 </head>
 <body>
 <div class="container">
 <h1>シンプルな四則演算計算機</h1>
 
-    <!-- Flaskから渡されたメッセージ変数を表示 -->
-    <div class="message">{{ message }}</div>
+<!-- Flaskから渡されたメッセージ変数を表示 -->
+<!-- message変数に計算結果、エラー、または初期メッセージが表示されます -->
+<div class="message">{{ message }}</div>
 
-    <!-- action="/" method="POST" は変更なし -->
-    <form method="POST" action="/">
-        <!-- name="num1" -->
-        <input type="number" name="num1" placeholder="数値 1" required value="{{ num1_val }}"> 
-        
-        <!-- 演算子のドロップダウンリスト -->
-        <select name="operator">
-            <option value="+">+</option>
-            <option value="-">-</option>
-            <option value="*">*</option>
-            <option value="/">/</option>
-        </select>
-
-        <!-- name="num2" -->
-        <input type="number" name="num2" placeholder="数値 2" required value="{{ num2_val }}"> 
-        
-        <button type="submit">計算</button>
-    </form>
+<!-- 🚨 修正点: actionを /calc に変更しました -->
+<form method="POST" action="/calc">
+    <!-- num1_val を使用して入力値を保持 -->
+    <input type="number" name="num1" placeholder="数値 1" required value="{{ num1_val if num1_val is not none else '' }}"> 
     
-    <p style="margin-top: 20px; font-size: 0.9em; color: #666;">
-        💡 ポイント: Python側で選択された演算子を受け取り、if文で計算方法を切り替えています。
-    </p>
+    <!-- 演算子のドロップダウンリスト -->
+    <select name="operator">
+        <!-- Python側から渡された operator 変数に基づいて選択状態を保持 -->
+        <option value="+" {{ 'selected' if operator == '+' else '' }}>+</option>
+        <option value="-" {{ 'selected' if operator == '-' else '' }}>-</option>
+        <option value="*" {{ 'selected' if operator == '*' else '' }}>*</option>
+        <option value="/" {{ 'selected' if operator == '/' else '' }}>/</option>
+    </select>
+
+    <!-- num2_val を使用して入力値を保持 -->
+    <input type="number" name="num2" placeholder="数値 2" required value="{{ num2_val if num2_val is not none else '' }}"> 
+    
+    <button type="submit">計算</button>
+</form>
+
+<p style="margin-top: 20px; font-size: 0.9em; color: #666;">
+    💡 ポイント: Python側で選択された演算子を受け取り、if文で計算方法を切り替えています。
+</p>
+
+
 </div>
-
-
 </body>
 </html>
